@@ -2,7 +2,7 @@
 import time
 
 MAXN = 729
-BUF = 0
+BUF = 60
 pygame.init()
 surface = pygame.display.set_mode((MAXN+BUF, MAXN+BUF))
 pygame.display.set_caption("Sierpinski Carpet")
