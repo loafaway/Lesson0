@@ -2,7 +2,7 @@
 import time
 
 MAXN = 729
-BUF = 60
+BUF = 20
 pygame.init()
 surface = pygame.display.set_mode((MAXN+BUF, MAXN+BUF))
 pygame.display.set_caption("Sierpinski Carpet")
@@ -35,6 +35,7 @@ def carpet(n, x, y):
 
 surface.fill((0, 100, 100))
 carpet(MAXN, 0, 0)
+pygame.image.save(surface, "carpet.png")
 
 while (not game_over):
     # 由 pygame 取得事件 (event)
