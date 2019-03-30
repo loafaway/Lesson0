@@ -1,0 +1,1 @@
+在 local machine 鍵入 'git push origin master:extra' 以建立一個分支(branch)於 remote server 之上。
