@@ -1,0 +1,3 @@
+﻿Text typed in XP.
+中文 in UTF-8 encoding.
+我能說中文呢。
