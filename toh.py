@@ -180,8 +180,8 @@ while not game_over:
     stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
     stepRectObj.center = (296, 14)
-    time.sleep(0.05)
     surface.blit(stepSurfObj, stepRectObj)
+    time.sleep(0.05)
 
     if idx < len(XY):
         X, Y = XY[idx]
