@@ -27,6 +27,7 @@ def drawAll(peg):
         for i in Disks_on_Sites[peg]:
             drawDisk(Array[i], Anchors[peg], Tops[peg])
             Tops[peg] -= 29
+
 ############################################################
 
 def setRoute(n, fro, to):
@@ -113,7 +114,6 @@ pegSurfObj2 = fontObj1.render('B', True, GREEN, BLUE)
 pegRectObj2 = pegSurfObj2.get_rect()
 pegSurfObj3 = fontObj1.render('C', True, GREEN, BLUE)
 pegRectObj3 = pegSurfObj3.get_rect()
-
 
 textSurfObj0 = fontObj3.render('', True, BLACK, WHITE)
 textRectObj0 = textSurfObj0.get_rect()
