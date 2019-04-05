@@ -146,6 +146,7 @@ setRoute(De, fro_peg, to_peg)
 step = 1
 idx = 0
 finished = False
+time.sleep(15)
 
 while not game_over:
 
