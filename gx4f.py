@@ -1,4 +1,4 @@
-﻿import pygame
+﻿import pygame, time
 
 
 ######################################################################################
@@ -47,7 +47,7 @@ def setRoute(n, fro, to):
         XY.append((x, 39))
 
     if ord(to) > ord(fro):
-        inc = (Anchors[to]-Anchors[fro]) // 17
+        inc = (Anchors[to]-Anchors[fro]) // 9
         x = Anchors[fro]
         XY.append((x, 39))
         while x < Anchors[to]:
@@ -57,7 +57,7 @@ def setRoute(n, fro, to):
             XY.pop()
             XY.append((Anchors[to], 39))
     else:
-        inc = (Anchors[to]-Anchors[fro]) // 17
+        inc = (Anchors[to]-Anchors[fro]) // 9
         x = Anchors[fro]
         XY.append((x, 39))
         while x > Anchors[to]:
@@ -174,10 +174,18 @@ while not game_over:
     surface.blit(pegSurfObj2, pegRectObj2)
     pegRectObj3.center = (Anchors['C'], 386)
     surface.blit(pegSurfObj3, pegRectObj3)
+
+
+    drawAll('A')
+    drawAll('B')
+    drawAll('C')
+
+
     if idx < len(XY):
         X, Y = XY[idx]
         idx += 1
     else:
+        time.sleep(0.05)
         if not finished:
             Disks_on_Sites[to_peg].append(De)
             Tops[to_peg] -= 29
@@ -198,12 +206,9 @@ while not game_over:
     surface.blit(textsurf, textrect)
     #'''
 
-
-    drawAll('A')
-    drawAll('B')
-    drawAll('C')
     
 
     pygame.display.flip()
+    #time.sleep(0.01)
     pygame.display.update()
     fpsClock.tick(FPS)
