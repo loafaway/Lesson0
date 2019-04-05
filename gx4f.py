@@ -3,14 +3,14 @@
 
 ######################################################################################
 
-def hanoi(n, fro='A', to='B', aux='C'):
+def toh(n, fro='A', to='B', aux='C'):
     
     if n == 1:
         TOH.append((1, fro, to))
     else:
-        hanoi(n-1, fro, aux, to)
+        toh(n-1, fro, aux, to)
         TOH.append((n, fro, to))
-        hanoi(n-1, aux, to, fro)
+        toh(n-1, aux, to, fro)
 
 ######################################################################################
 
@@ -35,7 +35,7 @@ def setRoute(n, fro, to):
     global XY
     XY = []
 
-    inc = (39-Tops[fro]) // 17
+    inc = (39-Tops[fro]) // 15
     x = Anchors[fro] 
     y = Tops[fro]
     XY.append((x, y))
@@ -47,7 +47,7 @@ def setRoute(n, fro, to):
         XY.append((x, 39))
 
     if ord(to) > ord(fro):
-        inc = (Anchors[to]-Anchors[fro]) // 9
+        inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
         XY.append((x, 39))
         while x < Anchors[to]:
@@ -57,7 +57,7 @@ def setRoute(n, fro, to):
             XY.pop()
             XY.append((Anchors[to], 39))
     else:
-        inc = (Anchors[to]-Anchors[fro]) // 9
+        inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
         XY.append((x, 39))
         while x > Anchors[to]:
@@ -67,7 +67,7 @@ def setRoute(n, fro, to):
             XY.pop()
             XY.append((Anchors[to], 39))
 
-    inc = (Tops[to]-39) // 17
+    inc = (Tops[to]-39) // 15
     x = Anchors[to] 
     y = 39
     XY.append((x, y))
@@ -84,7 +84,8 @@ pygame.init()
 surface = pygame.display.set_mode((600, 400))
 pygame.display.set_caption('The Tower of Hanoi Demo!')
 
-FPS = 30
+FPS = 60
+ADJ = -50
 fpsClock = pygame.time.Clock()
 game_over = False
 
@@ -98,7 +99,7 @@ Anchors = {'A': 93, 'B': 293, 'C': 493}
 Disks_on_Sites = {'A': [6, 5, 4, 3, 2, 1], 'B': [], 'C': []}
  
 fontObj1 = pygame.font.Font('freesansbold.ttf', 14)
-fontObj2 = pygame.font.Font(r'c:\windows\fonts\mingliu.ttc', 24)
+fontObj2 = pygame.font.Font(r'c:\windows\fonts\msjhl.ttc', 24)
 fontObj3 = pygame.font.Font(r'c:\windows\fonts\mingliu.ttc', 28)
 fontObj3.set_bold(True)
 fontObj3.set_underline(True)
@@ -134,31 +135,26 @@ Array = [(textSurfObj0, textRectObj0),
   (textSurfObj3, textRectObj3), (textSurfObj4, textRectObj4),
   (textSurfObj5, textRectObj5), (textSurfObj6, textRectObj6)]
 
-#TOH = [(1, 'A', 'C'), (2, 'A', 'B'), (1, 'C', 'B')]
-#TOH = [(2, 'A', 'B'), (1, 'A', 'C')]
 TOH = []
-hanoi(6)
+toh(6)
 
-
-#X, Y = 10, 10
+De, fro_peg, to_peg = TOH[0]
+Disks_on_Sites[fro_peg].pop()
+setRoute(De, fro_peg, to_peg)
+step = 1
 idx = 0
-idx_TOH = 0
-De, from_peg, to_peg = TOH[idx_TOH]
-idx_TOH = 1
-Disks_on_Sites[from_peg].pop()
-setRoute(De, from_peg, to_peg)
 finished = False
 
 while not game_over:
     # 由 pygame 取得事件 (event)
-    surface.fill((31, 255, 231))
+    surface.fill((55, 255, 225))
 
     for event in pygame.event.get():
         if (event.type == pygame.QUIT):
             game_over = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            pass
-            #X, Y = 493, 358
+            FPS += ADJ
+            ADJ = -ADJ
 
     textRectObj.center = (120, 12)
     surface.blit(textSurfObj, textRectObj)
@@ -175,40 +171,37 @@ while not game_over:
     pegRectObj3.center = (Anchors['C'], 386)
     surface.blit(pegSurfObj3, pegRectObj3)
 
-
     drawAll('A')
     drawAll('B')
     drawAll('C')
 
+    stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
+    stepRectObj = stepSurfObj.get_rect()
+    stepRectObj.center = (292, 12)
+    time.sleep(0.05)
+    surface.blit(stepSurfObj, stepRectObj)
 
     if idx < len(XY):
         X, Y = XY[idx]
         idx += 1
     else:
-        time.sleep(0.05)
         if not finished:
             Disks_on_Sites[to_peg].append(De)
             Tops[to_peg] -= 29
 
-        if idx_TOH < len(TOH):
-            De, from_peg, to_peg = TOH[idx_TOH]
-            Disks_on_Sites[from_peg].pop()
-            setRoute(De, from_peg, to_peg)
-            idx_TOH += 1
+        if step < len(TOH):
+            De, fro_peg, to_peg = TOH[step]
+            Disks_on_Sites[fro_peg].pop()
+            setRoute(De, fro_peg, to_peg)
+            step += 1
             idx = 0
         else:
             finished = True
         
-
-    #'''
     textsurf, textrect = Array[De]
     textrect.center = (X, Y)
-    surface.blit(textsurf, textrect)
-    #'''
-
-    
+    surface.blit(textsurf, textrect)    
 
     pygame.display.flip()
-    #time.sleep(0.01)
     pygame.display.update()
     fpsClock.tick(FPS)
