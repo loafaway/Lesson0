@@ -181,7 +181,6 @@ while not game_over:
     stepRectObj = stepSurfObj.get_rect()
     stepRectObj.center = (296, 14)
     surface.blit(stepSurfObj, stepRectObj)
-    time.sleep(0.05)
 
     if idx < len(XY):
         X, Y = XY[idx]
