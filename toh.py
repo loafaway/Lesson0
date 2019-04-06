@@ -23,7 +23,7 @@ def drawDisk(disk, x, y):
 def drawAll(peg):
 
     if Disks_on_Sites[peg]:
-        Tops[peg] = 358
+        Tops[peg] = 357
         for i in Disks_on_Sites[peg]:
             drawDisk(Array[i], Anchors[peg], Tops[peg])
             Tops[peg] -= 29
@@ -164,7 +164,7 @@ while not game_over:
     pygame.draw.rect(surface, GREY, (96, 100, 4, 273), 0)
     pygame.draw.rect(surface, GREY, (296, 100, 4, 273), 0)
     pygame.draw.rect(surface, GREY, (496, 100, 4, 273), 0)
-    pygame.draw.rect(surface, (150, 150, 0), (0, 374, 600, 27), 0)
+    pygame.draw.rect(surface, (150, 150, 0), (0, 373, 600, 27), 0)
 
     pegRectObj1.center = (Anchors['A'], 386)
     surface.blit(pegSurfObj1, pegRectObj1)
