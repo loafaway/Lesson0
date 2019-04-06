@@ -89,8 +89,7 @@ fpsClock = pygame.time.Clock()
 game_over = False
 
 WHITE = (255, 255, 255)
-ORANGE = (200, 200, 0)
-PURPLE = (0, 255, 255)
+ORANGE = (255, 255, 0)
 BLUE = (0, 0, 190)
 BLACK = (50, 50, 50)
 GREY = (180, 180, 180) 
