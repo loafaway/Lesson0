@@ -3,7 +3,8 @@ import pygame
 ############################################################
 
 def towers(n):
-    TOH =[]
+    global TOH
+    TOH = []
     toh(n)
     
 ############################################################
@@ -99,6 +100,8 @@ BLUE = (0, 0, 190)
 BLACK = (50, 50, 50)
 GREY = (180, 180, 180) 
 
+TOH = []
+#XY = []
 Tops = {'A': 213, 'B': 358, 'C': 358}
 Anchors = {'A': 98, 'B': 298, 'C': 498}
 Disks_on_Sites = {'A': [6, 5, 4, 3, 2, 1], 'B': [], 'C': []}
@@ -141,7 +144,7 @@ Array = [(textSurfObj0, textRectObj0),
   (textSurfObj3, textRectObj3), (textSurfObj4, textRectObj4),
   (textSurfObj5, textRectObj5), (textSurfObj6, textRectObj6)]
 
-towers(6)
+toh(6)
 FINAL = 6
 De, fro_peg, to_peg = TOH[0]
 Disks_on_Sites[fro_peg].pop()
