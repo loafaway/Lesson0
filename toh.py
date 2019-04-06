@@ -157,7 +157,7 @@ while not game_over:
             FPS += ADJ
             ADJ = -ADJ
 
-    textRectObj.center = (122, 14)
+    textRectObj.center = (122, 16)
     surface.blit(textSurfObj, textRectObj)
 
     pygame.draw.rect(surface, (150, 150, 150), (96, 100, 4, 273), 0)
