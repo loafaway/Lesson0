@@ -58,17 +58,17 @@ def setRoute(n, fro, to):
     else:
         inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
-        XY.append((x, 48))
+        XY.append((x, 58))
         while x > Anchors[to]:
             x += inc
-            XY.append((x, 48))
+            XY.append((x, 58))
         if x < Anchors[to]:
             XY.pop()
-            XY.append((Anchors[to], 48))
+            XY.append((Anchors[to], 58))
 
-    inc = (Tops[to]-48) // 15
+    inc = (Tops[to]-58) // 15
     x = Anchors[to] 
-    y = 48
+    y = 58
     XY.append((x, y))
     while y < Tops[to]:
         y += inc
