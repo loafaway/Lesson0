@@ -89,6 +89,7 @@ fpsClock = pygame.time.Clock()
 game_over = False
 
 WHITE = (255, 255, 255)
+ORANGE = (200, 200, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 190)
 BLACK = (50, 50, 50)
@@ -109,11 +110,11 @@ fontObj3.set_underline(True)
 textSurfObj = fontObj2.render('遞迴示例：六層河內塔', True, WHITE, BLUE)
 textRectObj = textSurfObj.get_rect()
 
-pegSurfObj1 = fontObj1.render('A', True, GREEN, BLUE)
+pegSurfObj1 = fontObj1.render('A', True, GREEN, ORANGE)
 pegRectObj1 = pegSurfObj1.get_rect()
-pegSurfObj2 = fontObj1.render('B', True, GREEN, BLUE)
+pegSurfObj2 = fontObj1.render('B', True, GREEN, ORANGE)
 pegRectObj2 = pegSurfObj2.get_rect()
-pegSurfObj3 = fontObj1.render('C', True, GREEN, BLUE)
+pegSurfObj3 = fontObj1.render('C', True, GREEN, ORANGE)
 pegRectObj3 = pegSurfObj3.get_rect()
 
 textSurfObj0 = fontObj3.render('', True, BLACK, WHITE)
