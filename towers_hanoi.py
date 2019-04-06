@@ -2,9 +2,9 @@ import pygame
 
 ############################################################
 
-def towers6():
+def towers(n):
     TOH =[]
-    toh(6)
+    toh(n)
     
 ############################################################
 
@@ -141,7 +141,7 @@ Array = [(textSurfObj0, textRectObj0),
   (textSurfObj3, textRectObj3), (textSurfObj4, textRectObj4),
   (textSurfObj5, textRectObj5), (textSurfObj6, textRectObj6)]
 
-towers()
+towers(6)
 FINAL = 6
 De, fro_peg, to_peg = TOH[0]
 Disks_on_Sites[fro_peg].pop()
