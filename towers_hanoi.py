@@ -4,7 +4,7 @@ import pygame
 
 def towers(n):
     
-    #global TOH
+    global TOH
     TOH = []
     toh(n)
     
@@ -40,7 +40,7 @@ def drawAll(peg):
 
 def setRoute(n, fro, to):
     
-    global XY
+    #global XY
     XY = []
 
     # vertical movement on the source position
