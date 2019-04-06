@@ -188,7 +188,7 @@ while not game_over:
         if FINAL == De:
             FINAL -= 1
             soundObj.play()
-            time.sleep(1)
+            pygame.time.wait(1000)
             soundObj.stop()
 
         if not finished:
