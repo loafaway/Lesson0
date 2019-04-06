@@ -157,7 +157,7 @@ while not game_over:
             FPS += ADJ
             ADJ = -ADJ
 
-    textRectObj.center = (120, 12)
+    textRectObj.center = (122, 14)
     surface.blit(textSurfObj, textRectObj)
 
     pygame.draw.rect(surface, (150, 150, 150), (96, 100, 4, 273), 0)
@@ -178,7 +178,7 @@ while not game_over:
 
     stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
-    stepRectObj.center = (296, 16)
+    stepRectObj.center = (297, 19)
     surface.blit(stepSurfObj, stepRectObj)
 
     if idx < len(XY):
