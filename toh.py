@@ -34,27 +34,27 @@ def setRoute(n, fro, to):
     global XY
     XY = []
 
-    inc = (48-Tops[fro]) // 15
+    inc = (58-Tops[fro]) // 15
     x = Anchors[fro] 
     y = Tops[fro]
     XY.append((x, y))
-    while y > 48:
+    while y > 58:
         y += inc
         XY.append((x, y))
-    if y < 48:
+    if y < 58:
         XY.pop()
-        XY.append((x, 48))
+        XY.append((x, 58))
 
     if ord(to) > ord(fro):
         inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
-        XY.append((x, 48))
+        XY.append((x, 58))
         while x < Anchors[to]:
             x += inc
-            XY.append((x, 48))
+            XY.append((x, 58))
         if x > Anchors[to]:
             XY.pop()
-            XY.append((Anchors[to], 48))
+            XY.append((Anchors[to], 58))
     else:
         inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
@@ -160,9 +160,9 @@ while not game_over:
     textRectObj.center = (120, 12)
     surface.blit(textSurfObj, textRectObj)
 
-    pygame.draw.rect(surface, (150, 150, 150), (95, 100, 5, 273), 0)
-    pygame.draw.rect(surface, (150, 150, 150), (295, 100, 5, 273), 0)
-    pygame.draw.rect(surface, (150, 150, 150), (495, 100, 5, 273), 0)
+    pygame.draw.rect(surface, (150, 150, 150), (96, 100, 4, 273), 0)
+    pygame.draw.rect(surface, (150, 150, 150), (296, 100, 4, 273), 0)
+    pygame.draw.rect(surface, (150, 150, 150), (496, 100, 4, 273), 0)
     pygame.draw.rect(surface, (150, 150, 0), (0, 373, 600, 27), 0)
 
     pegRectObj1.center = (Anchors['A'], 386)
@@ -178,7 +178,7 @@ while not game_over:
 
     stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
-    stepRectObj.center = (296, 14)
+    stepRectObj.center = (296, 16)
     surface.blit(stepSurfObj, stepRectObj)
 
     if idx < len(XY):
