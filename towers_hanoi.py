@@ -3,6 +3,7 @@ import pygame
 ############################################################
 
 def towers(n):
+    
     global TOH
     TOH = []
     toh(n)
@@ -38,6 +39,7 @@ def drawAll(peg):
 ############################################################
 
 def setRoute(n, fro, to):
+    
     global XY
     XY = []
 
