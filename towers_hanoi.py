@@ -43,6 +43,8 @@ def setRoute(n, fro, to):
     global XY
     XY = []
 
+    # vertical movement on the source position
+    
     inc = (63-Tops[fro]) // 15
     x = Anchors[fro] 
     y = Tops[fro]
@@ -54,6 +56,8 @@ def setRoute(n, fro, to):
         XY.pop()
         XY.append((x, 63))
 
+    # horizontal movement over the top
+    
     if ord(to) > ord(fro):
         inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
@@ -75,6 +79,8 @@ def setRoute(n, fro, to):
             XY.pop()
             XY.append((Anchors[to], 63))
 
+    # vertical movement on the destination position
+    
     inc = (Tops[to]-63) // 15
     x = Anchors[to] 
     y = 63
@@ -103,7 +109,7 @@ BLACK = (50, 50, 50)
 GREY = (180, 180, 180) 
 
 TOH = []
-#XY = []
+XY = []
 Tops = {'A': 213, 'B': 358, 'C': 358}
 Anchors = {'A': 98, 'B': 298, 'C': 498}
 Disks_on_Sites = {'A': [6, 5, 4, 3, 2, 1], 'B': [], 'C': []}
