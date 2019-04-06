@@ -92,6 +92,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 190)
 BLACK = (50, 50, 50)
+GREY = (180, 180, 180)
 
 Tops = {'A': 213, 'B': 358, 'C': 358}
 Anchors = {'A': 98, 'B': 298, 'C': 498}
@@ -160,10 +161,10 @@ while not game_over:
     textRectObj.center = (122, 18)
     surface.blit(textSurfObj, textRectObj)
 
-    pygame.draw.rect(surface, (150, 150, 150), (96, 100, 4, 273), 0)
-    pygame.draw.rect(surface, (150, 150, 150), (296, 100, 4, 273), 0)
-    pygame.draw.rect(surface, (150, 150, 150), (496, 100, 4, 273), 0)
-    pygame.draw.rect(surface, (150, 150, 0), (0, 373, 600, 27), 0)
+    pygame.draw.rect(surface, GREY, (96, 100, 4, 273), 0)
+    pygame.draw.rect(surface, GREY, (296, 100, 4, 273), 0)
+    pygame.draw.rect(surface, GREY, (496, 100, 4, 273), 0)
+    pygame.draw.rect(surface, (150, 150, 0), (0, 374, 600, 27), 0)
 
     pegRectObj1.center = (Anchors['A'], 386)
     surface.blit(pegSurfObj1, pegRectObj1)
