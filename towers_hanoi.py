@@ -3,7 +3,7 @@ import pygame
 ############################################################
 
 def towers(n):
-    #global TOH
+    global TOH
     TOH = []
     toh(n)
     
