@@ -4,19 +4,19 @@ import pygame
 
 def towers(n):
     
-    #global TOH
+    global TOH
     TOH = []
-    toh(n)
+    toh(TOH, n)
     
 ############################################################
 
-def toh(n, fro='A', to='B', aux='C'):
+def toh(movement_log, n, fro='A', to='B', aux='C'):
     
     if n == 1:
-        TOH.append((1, fro, to))
+        movement_log.append((1, fro, to))
     else:
         toh(n-1, fro, aux, to)
-        TOH.append((n, fro, to))
+        movement_log.append((n, fro, to))
         toh(n-1, aux, to, fro)
 
 ############################################################
