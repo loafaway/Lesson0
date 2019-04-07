@@ -3,7 +3,7 @@ import pygame
 ############################################################
 
 def towers(n):
-    
+
     global TOH
     TOH = []
     toh(TOH, n)
@@ -111,7 +111,7 @@ GREY = (180, 180, 180)
 Tops = {'A': 213, 'B': 358, 'C': 358}
 Anchors = {'A': 98, 'B': 298, 'C': 498}
 Disks_on_Sites = {'A': [6, 5, 4, 3, 2, 1], 'B': [], 'C': []}
- 
+
 soundObj = pygame.mixer.Sound('diesel-horn.wav')
 
 fontObj1 = pygame.font.Font('freesansbold.ttf', 14)
@@ -216,7 +216,7 @@ while not game_over:
             idx = 0
         else:
             finished = True
-        
+
     textsurf, textrect = Array[De]
     textrect.center = (X, Y)
     surface.blit(textsurf, textrect)    
