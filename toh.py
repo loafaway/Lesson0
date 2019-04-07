@@ -219,7 +219,7 @@ while not game_over:
 
     textsurf, textrect = Array[De]
     textrect.center = (X, Y)
-    surface.blit(textsurf, textrect)    
+    surface.blit(textsurf, textrect)
 
     pygame.display.flip()
     pygame.display.update()
