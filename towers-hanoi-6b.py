@@ -163,12 +163,18 @@ while not game_over:
 
     surface.fill((25, 255, 255))
 
+    pressed = pygame.key.get_pressed()
+    alt_held = pressed[pygame.K_LALT] or pressed[pygame.K_RALT]
+
     for event in pygame.event.get():
-        if (event.type == pygame.QUIT):
+        if event.type == pygame.QUIT:
             game_over = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
             FPS += ADJ
             ADJ = -ADJ
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_F4 and alt_held:
+                game_over = True
 
     textRectObj.center = (122, 18)
     surface.blit(textSurfObj, textRectObj)
