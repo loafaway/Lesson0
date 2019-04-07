@@ -4,7 +4,7 @@ import pygame
 
 def towers(n):
     
-    #global TOH
+    global TOH
     TOH = []
     toh(TOH, n)
     
@@ -108,8 +108,6 @@ BLUE = (0, 0, 190)
 BLACK = (50, 50, 50)
 GREY = (180, 180, 180) 
 
-#TOH = []
-#XY = []
 Tops = {'A': 213, 'B': 358, 'C': 358}
 Anchors = {'A': 98, 'B': 298, 'C': 498}
 Disks_on_Sites = {'A': [6, 5, 4, 3, 2, 1], 'B': [], 'C': []}
