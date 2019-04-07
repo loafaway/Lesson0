@@ -2,14 +2,22 @@ import pygame
 
 ############################################################
 
-def toh(n, fro='A', to='B', aux='C'):
+def towers(n):
     
+    global TOH
+    TOH = []
+    toh(TOH, n)
+
+############################################################
+
+def toh(log, n, fro='A', to='B', aux='C'):
+
     if n == 1:
-        TOH.append((1, fro, to))
+        log.append((1, fro, to))
     else:
-        toh(n-1, fro, aux, to)
-        TOH.append((n, fro, to))
-        toh(n-1, aux, to, fro)
+        toh(log, n-1, fro, aux, to)
+        log.append((n, fro, to))
+        toh(log, n-1, aux, to, fro)
 
 ############################################################
 
@@ -31,8 +39,11 @@ def drawAll(peg):
 ############################################################
 
 def setRoute(n, fro, to):
+
     global XY
     XY = []
+
+    # vertical movement on the source position
 
     inc = (58-Tops[fro]) // 15
     x = Anchors[fro] 
@@ -44,6 +55,8 @@ def setRoute(n, fro, to):
     if y < 58:
         XY.pop()
         XY.append((x, 58))
+
+    # horizontal movement over the top
 
     if ord(to) > ord(fro):
         inc = (Anchors[to]-Anchors[fro]) // 15
@@ -65,6 +78,8 @@ def setRoute(n, fro, to):
         if x < Anchors[to]:
             XY.pop()
             XY.append((Anchors[to], 58))
+
+    # vertical movement on the destination position
 
     inc = (Tops[to]-58) // 15
     x = Anchors[to] 
@@ -135,9 +150,7 @@ Array = [(textSurfObj0, textRectObj0),
   (textSurfObj3, textRectObj3), (textSurfObj4, textRectObj4),
   (textSurfObj5, textRectObj5), (textSurfObj6, textRectObj6)]
 
-TOH = []
-toh(6)
-
+towers(6)
 FINAL = 6
 De, fro_peg, to_peg = TOH[0]
 Disks_on_Sites[fro_peg].pop()
