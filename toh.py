@@ -96,7 +96,7 @@ def setRoute(n, fro, to):
 
 pygame.init()
 surface = pygame.display.set_mode((600, 400))
-pygame.display.set_caption('The Tower of Hanoi Demo!')
+pygame.display.set_caption('"The Tower of Hanoi of 6 Levels" Demo!')
 
 FPS = 60
 ADJ = -50
