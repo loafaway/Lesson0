@@ -172,8 +172,9 @@ while not game_over:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             FPS += ADJ
             ADJ = -ADJ
-        elif event.key == pygame.K_F4 and alt_held:
-            game_over = True
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_F4 and alt_held:
+                game_over = True
 
     textRectObj.center = (122, 18)
     surface.blit(textSurfObj, textRectObj)
