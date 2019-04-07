@@ -10,14 +10,14 @@ def towers(n):
     
 ############################################################
 
-def toh(movement_log, n, fro='A', to='B', aux='C'):
+def toh(log, n, fro='A', to='B', aux='C'):
     
     if n == 1:
-        movement_log.append((1, fro, to))
+        log.append((1, fro, to))
     else:
-        toh(n-1, fro, aux, to)
-        movement_log.append((n, fro, to))
-        toh(n-1, aux, to, fro)
+        toh(log, n-1, fro, aux, to)
+        log.append((n, fro, to))
+        toh(log, n-1, aux, to, fro)
 
 ############################################################
 
