@@ -40,7 +40,7 @@ def drawAll(peg):
 
 def setRoute(n, fro, to):
     
-    global XY
+    #global XY
     XY = []
 
     # vertical movement on the source position
