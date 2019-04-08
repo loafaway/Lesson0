@@ -150,7 +150,7 @@ textRectObj5 = textSurfObj5.get_rect()
 textSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
 textRectObj6 = textSurfObj6.get_rect()
 
-H = textRectObj0.height + 1
+H = textRectObj0.height
 
 Array = [(textSurfObj0, textRectObj0),
   (textSurfObj1, textRectObj1), (textSurfObj2, textRectObj2),
