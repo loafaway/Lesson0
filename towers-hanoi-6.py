@@ -122,7 +122,7 @@ fontObj3 = pygame.font.SysFont('microsoftjhengheimicrosoftjhengheiuilight', 56)
 fontObj3.set_bold(True)
 fontObj3.set_underline(True)
 
-'''
+''' 中文顯示
 textSurfObj = fontObj2.render('遞迴示例：六層河內塔', True, WHITE, BLUE)
 '''
 textSurfObj = fontObj2.render('An Exemplar of Recursion', True, WHITE, BLUE)
