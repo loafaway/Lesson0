@@ -118,7 +118,7 @@ soundObj = pygame.mixer.Sound('diesel-horn.wav')
 
 fontObj1 = pygame.font.SysFont('arial', 14)
 fontObj2 = pygame.font.SysFont('microsoftjhengheimicrosoftjhengheiuilight', 24)
-fontObj3 = pygame.font.SysFont('microsoftjhengheimicrosoftjhengheiuilight', 56)
+fontObj3 = pygame.font.SysFont('microsoftjhengheimicrosoftjhengheiuilight', 32)
 fontObj3.set_bold(True)
 fontObj3.set_underline(True)
 
