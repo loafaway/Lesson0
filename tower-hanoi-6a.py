@@ -176,7 +176,7 @@ while not game_over:
             if event.key == pygame.K_F4 and ALT_held:
                 game_over = True
 
-    textRectObj.center = (120, 17)
+    textRectObj.center = (120, 16)
     surface.blit(textSurfObj, textRectObj)
 
     pygame.draw.rect(surface, GREY, (96, 100, 4, 273), 0)
