@@ -204,7 +204,7 @@ while not game_over:
 
     stepSurfObj = fontObj1.render(str(step), True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
-    stepRectObj.center = (298, 18)
+    stepRectObj.center = (298, 17)
     surface.blit(stepSurfObj, stepRectObj)
 
     if idx < len(XY):
