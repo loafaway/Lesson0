@@ -33,7 +33,7 @@ def drawAll(peg):
     # global H
 
     if Disks_on_Sites[peg]:
-        Tops[peg] = 358
+        Tops[peg] = 357
         for i in Disks_on_Sites[peg]:
             drawDisk(Array[i], Anchors[peg], Tops[peg])
             Tops[peg] -= H
