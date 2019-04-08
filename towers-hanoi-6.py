@@ -30,7 +30,7 @@ def drawDisk(disk, x, y):
 
 def drawAll(peg):
 
-    global H
+    # global H
 
     if Disks_on_Sites[peg]:
         Tops[peg] = 358
