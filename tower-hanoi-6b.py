@@ -165,10 +165,11 @@ Array = [(diskSurfObj0, diskRectObj0),
 towers(6)
 FINAL = 6
 De, fro_peg, to_peg = TOH[0]
+step = 1
 Disks_on_Sites[fro_peg].pop()
 setRoute(De, fro_peg, to_peg)
-step = 1
-idx = 0
+X, Y = XY[0]
+idx = 1
 finished = False
 
 while not game_over:
@@ -214,12 +215,12 @@ while not game_over:
 
     if not finished:
 
-        X, Y = XY[idx]
         textsurf, textrect = Array[De]
         textrect.center = (X, Y)
         surface.blit(textsurf, textrect)
 
         if idx < len(XY):
+            X, Y = XY[idx]
             idx += 1
         else:
             if FINAL == De:
