@@ -211,7 +211,7 @@ while not game_over:
     drawAll('B')
     drawAll('C')
 
-    stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
+    stepSurfObj = fontObj1.render(str(step), True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
     stepRectObj.center = (Anchors['B'], (textRectObj.height+1)//2)
     surface.blit(stepSurfObj, stepRectObj)
