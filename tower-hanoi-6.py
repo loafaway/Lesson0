@@ -227,9 +227,8 @@ while not game_over:
                 pygame.time.wait(1000)
                 soundObj.stop()
 
-            if not finished:
-                Disks_on_Sites[to_peg].append(De)
-                Tops[to_peg] -= H
+            Disks_on_Sites[to_peg].append(De)
+            Tops[to_peg] -= H
 
             if step < len(TOH):
                 De, fro_peg, to_peg = TOH[step]
