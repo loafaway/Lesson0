@@ -215,32 +215,34 @@ while not game_over:
     stepRectObj.center = (Anchors['B'], (textRectObj.height+1)//2)
     surface.blit(stepSurfObj, stepRectObj)
 
-    if idx < len(XY):
-        X, Y = XY[idx]
-        idx += 1
-    else:
-        if FINAL == De:
-            FINAL -= 1
-            soundObj.play()
-            pygame.time.wait(1000)
-            soundObj.stop()
+    if not finished:
 
-        if not finished:
-            Disks_on_Sites[to_peg].append(De)
-            Tops[to_peg] -= H
-
-        if step < len(TOH):
-            De, fro_peg, to_peg = TOH[step]
-            Disks_on_Sites[fro_peg].pop()
-            setRoute(De, fro_peg, to_peg)
-            step += 1
-            idx = 0
+        if idx < len(XY):
+            X, Y = XY[idx]
+            idx += 1
         else:
-            finished = True
+            if FINAL == De:
+                FINAL -= 1
+                soundObj.play()
+                pygame.time.wait(1000)
+                soundObj.stop()
 
-    textsurf, textrect = Array[De]
-    textrect.center = (X, Y)
-    surface.blit(textsurf, textrect)
+            if not finished:
+                Disks_on_Sites[to_peg].append(De)
+                Tops[to_peg] -= H
+
+            if step < len(TOH):
+                De, fro_peg, to_peg = TOH[step]
+                Disks_on_Sites[fro_peg].pop()
+                setRoute(De, fro_peg, to_peg)
+                step += 1
+                idx = 0
+            else:
+                finished = True
+
+        textsurf, textrect = Array[De]
+        textrect.center = (X, Y)
+        surface.blit(textsurf, textrect)
 
     pygame.display.flip()
     pygame.display.update()
