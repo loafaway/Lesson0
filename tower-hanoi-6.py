@@ -33,7 +33,7 @@ def drawAll(peg):
     # global H
 
     if Disks_on_Sites[peg]:
-        Tops[peg] = 377 - H//2
+        Tops[peg] = 378 - (H+1)//2
         for i in Disks_on_Sites[peg]:
             drawDisk(Array[i], Anchors[peg], Tops[peg])
             Tops[peg] -= H
@@ -150,7 +150,7 @@ textSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
 textRectObj6 = textSurfObj6.get_rect()
 
 H = textRectObj0.height
-Tops = {'A': 377-(5*H)-H//2, 'B': 377-H//2, 'C': 377-H//2}
+Tops = {'A': 378-(5*H)-(H+1)//2, 'B': 378-(H+1)//2, 'C': 378-(H+1)//2}
 
 Array = [(textSurfObj0, textRectObj0),
   (textSurfObj1, textRectObj1), (textSurfObj2, textRectObj2),
