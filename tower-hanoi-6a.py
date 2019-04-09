@@ -217,6 +217,10 @@ while not game_over:
         if idx < len(XY):
             X, Y = XY[idx]
             idx += 1
+
+            textsurf, textrect = Array[De]
+            textrect.center = (X, Y)
+            surface.blit(textsurf, textrect)
         else:
             if FINAL == De:
                 FINAL -= 1
@@ -235,10 +239,6 @@ while not game_over:
                 idx = 0
             else:
                 finished = True
-
-        textsurf, textrect = Array[De]
-        textrect.center = (X, Y)
-        surface.blit(textsurf, textrect)
 
     pygame.display.flip()
     pygame.display.update()
