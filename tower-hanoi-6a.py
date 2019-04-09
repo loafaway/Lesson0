@@ -1,4 +1,4 @@
-import pygame
+﻿import pygame
 
 ############################################################
 
@@ -30,11 +30,13 @@ def drawDisk(disk, x, y):
 
 def drawAll(peg):
 
+    # global H
+
     if Disks_on_Sites[peg]:
-        Tops[peg] = 358
+        Tops[peg] = 378 - (H+1)//2
         for i in Disks_on_Sites[peg]:
             drawDisk(Array[i], Anchors[peg], Tops[peg])
-            Tops[peg] -= 29
+            Tops[peg] -= H
 
 ############################################################
 
@@ -45,45 +47,45 @@ def setRoute(n, fro, to):
 
     # vertical movement on the source position
 
-    inc = (58-Tops[fro]) // 15
+    inc = (63-Tops[fro]) // 15
     x = Anchors[fro] 
     y = Tops[fro]
     XY.append((x, y))
-    while y > 58:
+    while y > 63:
         y += inc
         XY.append((x, y))
-    if y < 58:
+    if y < 63:
         XY.pop()
-        XY.append((x, 58))
+        XY.append((x, 63))
 
     # horizontal movement over the top
 
     if ord(to) > ord(fro):
         inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
-        XY.append((x, 58))
+        XY.append((x, 63))
         while x < Anchors[to]:
             x += inc
-            XY.append((x, 58))
+            XY.append((x, 63))
         if x > Anchors[to]:
             XY.pop()
-            XY.append((Anchors[to], 58))
+            XY.append((Anchors[to], 63))
     else:
         inc = (Anchors[to]-Anchors[fro]) // 15
         x = Anchors[fro]
-        XY.append((x, 58))
+        XY.append((x, 63))
         while x > Anchors[to]:
             x += inc
-            XY.append((x, 58))
+            XY.append((x, 63))
         if x < Anchors[to]:
             XY.pop()
-            XY.append((Anchors[to], 58))
+            XY.append((Anchors[to], 63))
 
     # vertical movement on the destination position
 
-    inc = (Tops[to]-58) // 15
+    inc = (Tops[to]-63) // 15
     x = Anchors[to] 
-    y = 58
+    y = 63
     XY.append((x, y))
     while y < Tops[to]:
         y += inc
@@ -106,9 +108,8 @@ game_over = False
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 190)
 BLACK = (50, 50, 50)
-GREY = (180, 180, 180)
+GREY = (180, 180, 180) 
 
-Tops = {'A': 213, 'B': 358, 'C': 358}
 Anchors = {'A': 98, 'B': 298, 'C': 498}
 Disks_on_Sites = {'A': [6, 5, 4, 3, 2, 1], 'B': [], 'C': []}
 
@@ -130,25 +131,28 @@ pegRectObj2 = pegSurfObj2.get_rect()
 pegSurfObj3 = fontObj1.render('C', True, WHITE, BLUE)
 pegRectObj3 = pegSurfObj3.get_rect()
 
-textSurfObj0 = fontObj3.render('', True, BLACK, WHITE)
-textRectObj0 = textSurfObj0.get_rect()
-textSurfObj1 = fontObj3.render('1', True, BLACK, WHITE)
-textRectObj1 = textSurfObj1.get_rect()
-textSurfObj2 = fontObj3.render(' 2 ', True, BLACK, WHITE)
-textRectObj2 = textSurfObj2.get_rect()
-textSurfObj3 = fontObj3.render('  3  ', True, BLACK, WHITE)
-textRectObj3 = textSurfObj3.get_rect()
-textSurfObj4 = fontObj3.render('   4   ', True, BLACK, WHITE)
-textRectObj4 = textSurfObj4.get_rect()
-textSurfObj5 = fontObj3.render('    5    ', True, BLACK, WHITE)
-textRectObj5 = textSurfObj5.get_rect()
-textSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
-textRectObj6 = textSurfObj6.get_rect()
+diskSurfObj0 = fontObj3.render('', True, BLACK, WHITE)
+diskRectObj0 = diskSurfObj0.get_rect()
+diskSurfObj1 = fontObj3.render('1', True, BLACK, WHITE)
+diskRectObj1 = diskSurfObj1.get_rect()
+diskSurfObj2 = fontObj3.render(' 2 ', True, BLACK, WHITE)
+diskRectObj2 = diskSurfObj2.get_rect()
+diskSurfObj3 = fontObj3.render('  3  ', True, BLACK, WHITE)
+diskRectObj3 = diskSurfObj3.get_rect()
+diskSurfObj4 = fontObj3.render('   4   ', True, BLACK, WHITE)
+diskRectObj4 = diskSurfObj4.get_rect()
+diskSurfObj5 = fontObj3.render('    5    ', True, BLACK, WHITE)
+diskRectObj5 = diskSurfObj5.get_rect()
+diskSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
+diskRectObj6 = diskSurfObj6.get_rect()
 
-Array = [(textSurfObj0, textRectObj0),
-  (textSurfObj1, textRectObj1), (textSurfObj2, textRectObj2),
-  (textSurfObj3, textRectObj3), (textSurfObj4, textRectObj4),
-  (textSurfObj5, textRectObj5), (textSurfObj6, textRectObj6)]
+H = diskRectObj0.height
+Tops = {'A': 378-5*H-(H+1)//2, 'B': 378-(H+1)//2, 'C': 378-(H+1)//2}
+
+Array = [(diskSurfObj0, diskRectObj0),
+  (diskSurfObj1, diskRectObj1), (diskSurfObj2, diskRectObj2),
+  (diskSurfObj3, diskRectObj3), (diskSurfObj4, diskRectObj4),
+  (diskSurfObj5, diskRectObj5), (diskSurfObj6, diskRectObj6)]
 
 towers(6)
 FINAL = 6
@@ -176,19 +180,19 @@ while not game_over:
             if event.key == pygame.K_F4 and ALT_held:
                 game_over = True
 
-    textRectObj.center = (120, 16)
+    textRectObj.center = (textRectObj.width//2, textRectObj.height//2)
     surface.blit(textSurfObj, textRectObj)
 
-    pygame.draw.rect(surface, GREY, (96, 100, 4, 273), 0)
-    pygame.draw.rect(surface, GREY, (296, 100, 4, 273), 0)
-    pygame.draw.rect(surface, GREY, (496, 100, 4, 273), 0)
-    pygame.draw.rect(surface, (150, 150, 0), (0, 373, 600, 27), 0)
+    pygame.draw.rect(surface, GREY, (96, 100, 4, 278), 0)
+    pygame.draw.rect(surface, GREY, (296, 100, 4, 278), 0)
+    pygame.draw.rect(surface, GREY, (496, 100, 4, 278), 0)
+    pygame.draw.rect(surface, (150, 150, 0), (0, 378, 600, 22), 0)
 
-    pegRectObj1.center = (Anchors['A'], 386)
+    pegRectObj1.center = (Anchors['A'], 389)
     surface.blit(pegSurfObj1, pegRectObj1)
-    pegRectObj2.center = (Anchors['B'], 386)
+    pegRectObj2.center = (Anchors['B'], 389)
     surface.blit(pegSurfObj2, pegRectObj2)
-    pegRectObj3.center = (Anchors['C'], 386)
+    pegRectObj3.center = (Anchors['C'], 389)
     surface.blit(pegSurfObj3, pegRectObj3)
 
     drawAll('A')
@@ -197,7 +201,7 @@ while not game_over:
 
     stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
-    stepRectObj.center = (297, 19)
+    stepRectObj.center = (Anchors['B'], (textRectObj.height+1)//2)
     surface.blit(stepSurfObj, stepRectObj)
 
     if idx < len(XY):
@@ -212,7 +216,7 @@ while not game_over:
 
         if not finished:
             Disks_on_Sites[to_peg].append(De)
-            Tops[to_peg] -= 29
+            Tops[to_peg] -= H
 
         if step < len(TOH):
             De, fro_peg, to_peg = TOH[step]

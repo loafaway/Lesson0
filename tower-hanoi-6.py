@@ -150,7 +150,7 @@ diskSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
 diskRectObj6 = diskSurfObj6.get_rect()
 
 H = diskRectObj0.height
-Tops = {'A': 378-(5*H)-(H+1)//2, 'B': 378-(H+1)//2, 'C': 378-(H+1)//2}
+Tops = {'A': 378-5*H-(H+1)//2, 'B': 378-(H+1)//2, 'C': 378-(H+1)//2}
 
 Array = [(diskSurfObj0, diskRectObj0),
   (diskSurfObj1, diskRectObj1), (diskSurfObj2, diskRectObj2),
