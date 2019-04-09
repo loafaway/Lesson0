@@ -214,13 +214,13 @@ while not game_over:
 
     if not finished:
 
-        if idx < len(XY):
-            X, Y = XY[idx]
-            idx += 1
+        X, Y = XY[idx]
+        textsurf, textrect = Array[De]
+        textrect.center = (X, Y)
+        surface.blit(textsurf, textrect)
 
-            textsurf, textrect = Array[De]
-            textrect.center = (X, Y)
-            surface.blit(textsurf, textrect)
+        if idx < len(XY):
+            idx += 1
         else:
             if FINAL == De:
                 FINAL -= 1
