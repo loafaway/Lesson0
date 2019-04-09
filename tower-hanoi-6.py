@@ -1,4 +1,4 @@
-############################################################
+﻿############################################################
 #
 #    Title:  The Tower of Hanoi of 6 Levels
 #    Author: Greg Huang
@@ -125,7 +125,7 @@ soundObj = pygame.mixer.Sound('diesel-horn.wav')
 
 fontObj1 = pygame.font.SysFont('arial', 14)
 fontObj2 = pygame.font.SysFont('microsoftjhengheimicrosoftjhengheiuilight', 24)
-fontObj3 = pygame.font.SysFont('microsoftjhengheimicrosoftjhengheiuilight', 32)
+fontObj3 = pygame.font.SysFont('microsoftjhengheimicrosoftjhengheiuilight', 28)
 fontObj3.set_bold(True)
 fontObj3.set_underline(True)
 
@@ -168,10 +168,11 @@ Array = [(diskSurfObj0, diskRectObj0),
 towers(6)
 FINAL = 6
 De, fro_peg, to_peg = TOH[0]
+step = 1
 Disks_on_Sites[fro_peg].pop()
 setRoute(De, fro_peg, to_peg)
-step = 1
-idx = 0
+X, Y = XY[0]
+idx = 1
 finished = False
 
 while not game_over:
@@ -210,20 +211,20 @@ while not game_over:
     drawAll('B')
     drawAll('C')
 
-    stepSurfObj = fontObj1.render(str(step), True, WHITE, BLACK)
+    stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
     stepRectObj.center = (Anchors['B'], (textRectObj.height+1)//2)
     surface.blit(stepSurfObj, stepRectObj)
 
     if not finished:
 
+        textsurf, textrect = Array[De]
+        textrect.center = (X, Y)
+        surface.blit(textsurf, textrect)
+
         if idx < len(XY):
             X, Y = XY[idx]
             idx += 1
-
-            textsurf, textrect = Array[De]
-            textrect.center = (X, Y)
-            surface.blit(textsurf, textrect)
         else:
             if FINAL == De:
                 FINAL -= 1
@@ -236,10 +237,11 @@ while not game_over:
 
             if step < len(TOH):
                 De, fro_peg, to_peg = TOH[step]
+                step += 1
                 Disks_on_Sites[fro_peg].pop()
                 setRoute(De, fro_peg, to_peg)
-                step += 1
-                idx = 0
+                X, Y = XY[0]
+                idx = 1
             else:
                 finished = True
 
