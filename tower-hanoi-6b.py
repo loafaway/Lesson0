@@ -1,4 +1,4 @@
-############################################################
+﻿############################################################
 #
 #    Title:  The Tower of Hanoi of 6 Levels
 #    Author: Greg Huang
@@ -234,10 +234,11 @@ while not game_over:
 
             if step < len(TOH):
                 De, fro_peg, to_peg = TOH[step]
+                step += 1
                 Disks_on_Sites[fro_peg].pop()
                 setRoute(De, fro_peg, to_peg)
-                step += 1
-                idx = 0
+                X, Y = XY[0]
+                idx = 1
             else:
                 finished = True
 
