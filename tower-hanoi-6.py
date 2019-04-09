@@ -161,9 +161,9 @@ H = diskRectObj0.height
 Tops = {'A': 378-5*H-(H+1)//2, 'B': 378-(H+1)//2, 'C': 378-(H+1)//2}
 
 Array = [(diskSurfObj0, diskRectObj0),
-  (diskSurfObj1, diskRectObj1), (diskSurfObj2, diskRectObj2),
-  (diskSurfObj3, diskRectObj3), (diskSurfObj4, diskRectObj4),
-  (diskSurfObj5, diskRectObj5), (diskSurfObj6, diskRectObj6)]
+    (diskSurfObj1, diskRectObj1), (diskSurfObj2, diskRectObj2),
+    (diskSurfObj3, diskRectObj3), (diskSurfObj4, diskRectObj4),
+    (diskSurfObj5, diskRectObj5), (diskSurfObj6, diskRectObj6)]
 
 towers(6)
 FINAL = 6
