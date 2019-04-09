@@ -134,28 +134,28 @@ pegRectObj2 = pegSurfObj2.get_rect()
 pegSurfObj3 = fontObj1.render('C', True, WHITE, BLUE)
 pegRectObj3 = pegSurfObj3.get_rect()
 
-textSurfObj0 = fontObj3.render('', True, BLACK, WHITE)
-textRectObj0 = textSurfObj0.get_rect()
-textSurfObj1 = fontObj3.render('1', True, BLACK, WHITE)
-textRectObj1 = textSurfObj1.get_rect()
-textSurfObj2 = fontObj3.render(' 2 ', True, BLACK, WHITE)
-textRectObj2 = textSurfObj2.get_rect()
-textSurfObj3 = fontObj3.render('  3  ', True, BLACK, WHITE)
-textRectObj3 = textSurfObj3.get_rect()
-textSurfObj4 = fontObj3.render('   4   ', True, BLACK, WHITE)
-textRectObj4 = textSurfObj4.get_rect()
-textSurfObj5 = fontObj3.render('    5    ', True, BLACK, WHITE)
-textRectObj5 = textSurfObj5.get_rect()
-textSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
-textRectObj6 = textSurfObj6.get_rect()
+diskSurfObj0 = fontObj3.render('', True, BLACK, WHITE)
+diskRectObj0 = diskSurfObj0.get_rect()
+diskSurfObj1 = fontObj3.render('1', True, BLACK, WHITE)
+diskRectObj1 = diskSurfObj1.get_rect()
+diskSurfObj2 = fontObj3.render(' 2 ', True, BLACK, WHITE)
+diskRectObj2 = diskSurfObj2.get_rect()
+diskSurfObj3 = fontObj3.render('  3  ', True, BLACK, WHITE)
+diskRectObj3 = diskSurfObj3.get_rect()
+diskSurfObj4 = fontObj3.render('   4   ', True, BLACK, WHITE)
+diskRectObj4 = diskSurfObj4.get_rect()
+diskSurfObj5 = fontObj3.render('    5    ', True, BLACK, WHITE)
+diskRectObj5 = diskSurfObj5.get_rect()
+diskSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
+diskRectObj6 = diskSurfObj6.get_rect()
 
-H = textRectObj0.height
+H = diskRectObj0.height
 Tops = {'A': 378-(5*H)-(H+1)//2, 'B': 378-(H+1)//2, 'C': 378-(H+1)//2}
 
-Array = [(textSurfObj0, textRectObj0),
-  (textSurfObj1, textRectObj1), (textSurfObj2, textRectObj2),
-  (textSurfObj3, textRectObj3), (textSurfObj4, textRectObj4),
-  (textSurfObj5, textRectObj5), (textSurfObj6, textRectObj6)]
+Array = [(diskSurfObj0, diskRectObj0),
+  (diskSurfObj1, diskRectObj1), (diskSurfObj2, diskRectObj2),
+  (diskSurfObj3, diskRectObj3), (diskSurfObj4, diskRectObj4),
+  (diskSurfObj5, diskRectObj5), (diskSurfObj6, diskRectObj6)]
 
 towers(6)
 FINAL = 6
@@ -204,7 +204,7 @@ while not game_over:
 
     stepSurfObj = fontObj1.render(str(step), True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
-    stepRectObj.center = (298, H//2)
+    stepRectObj.center = (Anchors['B'], (textRectObj.height+1)//2)
     surface.blit(stepSurfObj, stepRectObj)
 
     if idx < len(XY):
