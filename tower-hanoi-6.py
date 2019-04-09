@@ -33,7 +33,7 @@ def drawAll(peg):
     # global H
 
     if Disks_on_Sites[peg]:
-        Tops[peg] = 356
+        Tops[peg] = 377 - H//2
         for i in Disks_on_Sites[peg]:
             drawDisk(Array[i], Anchors[peg], Tops[peg])
             Tops[peg] -= H
@@ -110,7 +110,6 @@ BLUE = (0, 0, 190)
 BLACK = (50, 50, 50)
 GREY = (180, 180, 180) 
 
-Tops = {'A': 213, 'B': 358, 'C': 358}
 Anchors = {'A': 98, 'B': 298, 'C': 498}
 Disks_on_Sites = {'A': [6, 5, 4, 3, 2, 1], 'B': [], 'C': []}
 
@@ -151,6 +150,7 @@ textSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
 textRectObj6 = textSurfObj6.get_rect()
 
 H = textRectObj0.height
+Tops = {'A': 377-(5*H)-H//2, 'B': 377-H//2, 'C': 377-H//2}
 
 Array = [(textSurfObj0, textRectObj0),
   (textSurfObj1, textRectObj1), (textSurfObj2, textRectObj2),
@@ -204,7 +204,7 @@ while not game_over:
 
     stepSurfObj = fontObj1.render(str(step), True, WHITE, BLACK)
     stepRectObj = stepSurfObj.get_rect()
-    stepRectObj.center = (298, 17)
+    stepRectObj.center = (298, H//2)
     surface.blit(stepSurfObj, stepRectObj)
 
     if idx < len(XY):
