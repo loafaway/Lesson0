@@ -1,4 +1,4 @@
-############################################################
+﻿############################################################
 #
 #    Title:  The Tower of Hanoi of 6 Levels
 #    Author: Greg Huang
@@ -129,38 +129,38 @@ fontObj3 = pygame.font.Font(r'c:\windows\fonts\mingliu.ttc', 28)
 fontObj3.set_bold(True)
 fontObj3.set_underline(True)
 
-textSurfObj = fontObj2.render('遞迴示例：六層河內塔', True, WHITE, BLUE)
-textRectObj = textSurfObj.get_rect()
+textObj = fontObj2.render('遞迴示例：六層河內塔', True, WHITE, BLUE)
+textRectObj = textObj.get_rect()
 
-pegSurfObj1 = fontObj1.render('A', True, WHITE, BLUE)
-pegRectObj1 = pegSurfObj1.get_rect()
-pegSurfObj2 = fontObj1.render('B', True, WHITE, BLUE)
-pegRectObj2 = pegSurfObj2.get_rect()
-pegSurfObj3 = fontObj1.render('C', True, WHITE, BLUE)
-pegRectObj3 = pegSurfObj3.get_rect()
+pegObj1 = fontObj1.render('A', True, WHITE, BLUE)
+pegRectObj1 = pegObj1.get_rect()
+pegObj2 = fontObj1.render('B', True, WHITE, BLUE)
+pegRectObj2 = pegObj2.get_rect()
+pegObj3 = fontObj1.render('C', True, WHITE, BLUE)
+pegRectObj3 = pegObj3.get_rect()
 
-diskSurfObj0 = fontObj3.render('', True, BLACK, WHITE)
-diskRectObj0 = diskSurfObj0.get_rect()
-diskSurfObj1 = fontObj3.render('1', True, BLACK, WHITE)
-diskRectObj1 = diskSurfObj1.get_rect()
-diskSurfObj2 = fontObj3.render(' 2 ', True, BLACK, WHITE)
-diskRectObj2 = diskSurfObj2.get_rect()
-diskSurfObj3 = fontObj3.render('  3  ', True, BLACK, WHITE)
-diskRectObj3 = diskSurfObj3.get_rect()
-diskSurfObj4 = fontObj3.render('   4   ', True, BLACK, WHITE)
-diskRectObj4 = diskSurfObj4.get_rect()
-diskSurfObj5 = fontObj3.render('    5    ', True, BLACK, WHITE)
-diskRectObj5 = diskSurfObj5.get_rect()
-diskSurfObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
-diskRectObj6 = diskSurfObj6.get_rect()
+diskObj0 = fontObj3.render('', True, BLACK, WHITE)
+diskRectObj0 = diskObj0.get_rect()
+diskObj1 = fontObj3.render('1', True, BLACK, WHITE)
+diskRectObj1 = diskObj1.get_rect()
+diskObj2 = fontObj3.render(' 2 ', True, BLACK, WHITE)
+diskRectObj2 = diskObj2.get_rect()
+diskObj3 = fontObj3.render('  3  ', True, BLACK, WHITE)
+diskRectObj3 = diskObj3.get_rect()
+diskObj4 = fontObj3.render('   4   ', True, BLACK, WHITE)
+diskRectObj4 = diskObj4.get_rect()
+diskObj5 = fontObj3.render('    5    ', True, BLACK, WHITE)
+diskRectObj5 = diskObj5.get_rect()
+diskObj6 = fontObj3.render('     6     ', True, BLACK, WHITE)
+diskRectObj6 = diskObj6.get_rect()
 
 H = diskRectObj0.height
 Tops = {'A': 378-5*H-(H+1)//2, 'B': 378-(H+1)//2, 'C': 378-(H+1)//2}
 
-Array = [(diskSurfObj0, diskRectObj0),
-    (diskSurfObj1, diskRectObj1), (diskSurfObj2, diskRectObj2),
-    (diskSurfObj3, diskRectObj3), (diskSurfObj4, diskRectObj4),
-    (diskSurfObj5, diskRectObj5), (diskSurfObj6, diskRectObj6)]
+Array = [(diskObj0, diskRectObj0),
+    (diskObj1, diskRectObj1), (diskObj2, diskRectObj2),
+    (diskObj3, diskRectObj3), (diskObj4, diskRectObj4),
+    (diskObj5, diskRectObj5), (diskObj6, diskRectObj6)]
 
 towers(6)
 FINAL = 6
@@ -190,7 +190,7 @@ while not game_over:
                 game_over = True
 
     textRectObj.center = (textRectObj.width//2, textRectObj.height//2)
-    surface.blit(textSurfObj, textRectObj)
+    surface.blit(textObj, textRectObj)
 
     pygame.draw.rect(surface, GREY, (96, 100, 4, 278), 0)
     pygame.draw.rect(surface, GREY, (296, 100, 4, 278), 0)
@@ -198,20 +198,20 @@ while not game_over:
     pygame.draw.rect(surface, (150, 150, 0), (0, 378, 600, 22), 0)
 
     pegRectObj1.center = (Anchors['A'], 389)
-    surface.blit(pegSurfObj1, pegRectObj1)
+    surface.blit(pegObj1, pegRectObj1)
     pegRectObj2.center = (Anchors['B'], 389)
-    surface.blit(pegSurfObj2, pegRectObj2)
+    surface.blit(pegObj2, pegRectObj2)
     pegRectObj3.center = (Anchors['C'], 389)
-    surface.blit(pegSurfObj3, pegRectObj3)
+    surface.blit(pegObj3, pegRectObj3)
 
     drawAll('A')
     drawAll('B')
     drawAll('C')
 
-    stepSurfObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
-    stepRectObj = stepSurfObj.get_rect()
+    stepObj = fontObj1.render(f'{step}', True, WHITE, BLACK)
+    stepRectObj = stepObj.get_rect()
     stepRectObj.center = (Anchors['B'], (textRectObj.height+1)//2)
-    surface.blit(stepSurfObj, stepRectObj)
+    surface.blit(stepObj, stepRectObj)
 
     if not finished:
 
