@@ -218,9 +218,9 @@ while not game_over:
 
     if not finished:
 
-        textsurf, textrect = Array[De]
+        text, textrect = Array[De]
         textrect.center = (X, Y)
-        surface.blit(textsurf, textrect)
+        surface.blit(text, textrect)
 
         if idx < len(XY):
             X, Y = XY[idx]
