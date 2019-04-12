@@ -11,7 +11,7 @@ import pygame
 
 ############################################################
 
-def towers(n):
+def tower_hanoi(n):
 
     global TOH
     TOH = []
@@ -163,7 +163,7 @@ Array = [(diskObj0, diskRectObj0),
     (diskObj3, diskRectObj3), (diskObj4, diskRectObj4),
     (diskObj5, diskRectObj5), (diskObj6, diskRectObj6)]
 
-towers(6)
+tower_hanoi(6)
 FINAL = 6
 De, fro_peg, to_peg = TOH[0]
 step = 1
