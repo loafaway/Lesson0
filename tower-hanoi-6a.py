@@ -1,8 +1,9 @@
 ############################################################
 #
-#    Title:  The Tower of Hanoi of 6 Levels
-#    Author: Greg Huang
-#    Date:   2019/03/27
+#      Title: The Tower of Hanoi of 6 Levels
+#     Author: Greg Huang
+#       Date: 2019/03/27
+#  Copyright: Released under a "Simplified BSD" license
 #
 ############################################################
 
