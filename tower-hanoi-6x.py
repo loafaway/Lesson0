@@ -1,9 +1,9 @@
 ############################################################
 #
-#      Title: The Tower of Hanoi of 6 Levels
-#     Author: Greg Huang
-#       Date: 2019/03/27
-#  Copyright: Released under a "Simplified BSD" license
+#      Title:  The Tower of Hanoi of 6 Levels
+#     Author:  Greg Huang
+#       Date:  2019/03/27
+#  Copyright:  Released under a "Simplified BSD" license
 #
 ############################################################
 
@@ -245,6 +245,5 @@ while not game_over:
             else:
                 finished = True
 
-    pygame.display.flip()
     pygame.display.update()
     fpsClock.tick(FPS)
